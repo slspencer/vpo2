@@ -18,6 +18,7 @@ TEMPLATE = lib
 
 # Use out-of-source builds (shadow builds)
 CONFIG -= debug_and_release debug_and_release_target
+message("qmuparser.pro: 20")
 
 # Since Q5.4 available support C++14
 greaterThan(QT_MAJOR_VERSION, 4):greaterThan(QT_MINOR_VERSION, 3) {
@@ -48,6 +49,7 @@ VERSION = 2.5.0
 
 # Allow MAC OS X to find library inside a bundle
 macx:QMAKE_SONAME_PREFIX = @rpath
+message("qmuparser.pro: 50")
 
 # Allow MAC OS X to find library inside a bundle
 macx:QMAKE_SONAME_PREFIX = @rpath
@@ -74,6 +76,7 @@ unix:!macx{
 $$enable_ccache()
 
 include(warnings.pri)
+message("qmuparser.pro: 75")
 
 CONFIG(release, debug|release){
     # Release mode
@@ -82,7 +85,7 @@ CONFIG(release, debug|release){
     !unix:*g++*{
         QMAKE_CXXFLAGS += -fno-omit-frame-pointer # Need for exchndl.dll
     }
-
+    message("qmuparser.pro: 100")
     noStripDebugSymbols {
         # do nothing
     } else {
@@ -112,3 +115,5 @@ CONFIG(release, debug|release){
 }
 
 include (../libs.pri)
+
+message("qmuparser.pro: 125")
